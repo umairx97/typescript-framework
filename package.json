@@ -1,0 +1,36 @@
+{
+  "name": "typescript-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umairx97/typescript-framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umairx97/typescript-framework/issues"
+  },
+  "homepage": "https://github.com/umairx97/typescript-framework#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "standard": "^14.3.4"
+  },
+  "standard": {
+    "plugins": [
+      "typescript"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/preset-react": "^7.9.4",
+    "typescript": "^3.9.3"
+  }
+}
