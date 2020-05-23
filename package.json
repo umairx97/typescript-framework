@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "watch:json": "json-server -w db.json"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/umairx97/typescript-framework#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "json-server": "^0.16.1",
     "parcel-bundler": "^1.12.4",
     "standard": "^14.3.4"
