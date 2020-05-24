@@ -1,41 +1,22 @@
 import axios, { AxiosResponse } from 'axios';
+import { Events } from './Events'
+import { Sync } from './Sync'
+import { Attributes } from './Attributes'
 
-interface UserProps {
+export interface UserProps {
   name?: string
   age?: number
   id?: number
 }
 
-const BASE_URL = `http://localhost:3000`
-
 export class User {
-  constructor(private data: UserProps) { }
+  protected BASE_URL: string = `http://localhost:3000`
+  public events: Events = new Events();
+  public sync: Sync<UserProps> = new Sync<UserProps>(this.BASE_URL);
+  public attributes: Attributes<UserProps>
 
-  // Get the property name from this.data either returns a string or a number 
-  get(propName: string): number | string {
-    return this.data[propName]
-  }
 
-  // Sets a property on this.data 
-  set(update: UserProps): void {
-    Object.assign(this.data, update)
-  }
-
-  // fetch the current user with an id
-  fetch(): void {
-    axios.get(`${BASE_URL}/users/${this.get('id')}`)
-      .then((response: AxiosResponse): void => {
-        this.set(response.data)
-      })
-  }
-
-  // Save data inside json server if the users already exists or create a new one 
-  save(): void {
-    const userId = this.get('id')
-    if (userId) {
-      axios.put(`${BASE_URL}/users/${userId}`, this.data)
-    } else {
-      axios.post(`${BASE_URL}/users`, this.data)
-    }
+  constructor(attrs: UserProps) {
+    this.attributes = new Attributes<UserProps>(attrs)
   }
 }
