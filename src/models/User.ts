@@ -1,4 +1,3 @@
-import axios, { AxiosResponse } from 'axios';
 import { Model } from './Model';
 import { Events } from './Events'
 import { ApiSync } from './ApiSync'

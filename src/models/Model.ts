@@ -16,8 +16,8 @@ interface ModelAttributes<T> {
   getAll(): T
 }
 
-interface HasId { 
-  id?:  number
+interface HasId {
+  id?: number
 }
 
 export class Model<T extends HasId> {
@@ -27,17 +27,9 @@ export class Model<T extends HasId> {
     private sync: SyncInterface<T>
   ) { }
 
-  get on() {
-    return this.events.on
-  }
-
-  get trigger() {
-    return this.events.trigger
-  }
-
-  get get() {
-    return this.attributes.get
-  }
+  on = this.events.on
+  get = this.attributes.get
+  trigger = this.events.trigger
 
   set(update: T) {
     this.attributes.set(update)
