@@ -4,16 +4,17 @@ interface HasId {
   id?: number
 }
 export class ApiSync<T extends HasId> {
-  constructor(public rootUrl: string) {
-    
-  }
-  
+  constructor(public rootUrl: string) { }
+
   // fetch the current user with an id
   fetch(id: number): AxiosPromise {
     return axios.get(`${this.rootUrl}/users/${id}`)
   }
 
-  // Save data inside json server if the users already exists or create a new one 
+  /** 
+    @description - T is generic data type which will be given 
+    to the class, in this case it will be UserProps interface
+  */
   save(data: T): AxiosPromise {
     const { id: userId } = data
     if (userId) {

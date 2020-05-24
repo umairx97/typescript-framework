@@ -1,6 +1,14 @@
 import { Events } from './Events'
 import Axios, { AxiosResponse } from 'axios'
+
+/* 
+  T = User class 
+  K = UserProps interface 
+  <T, K> = <User, UserProps> a generic type definition
+*/
 export class Collection<T, K> {
+  // models property is an array of Users that are based
+  // on the User class which was passed as a generic type def
   models: T[] = []
   events: Events = new Events()
 
@@ -26,8 +34,6 @@ export class Collection<T, K> {
         });
         this.trigger('change')
       })
-
-
   }
 
 }

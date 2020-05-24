@@ -12,6 +12,13 @@ export interface SyncInterface<T> {
 
 interface ModelAttributes<T> {
   set(value: T): void
+  /* 
+    T = UserProps 
+    K = key on UserProps interface
+    so T[K] means that `get` will return an object 
+    which will include a key from UserProps interface 
+    e.g UserProps['name']
+  */
   get<K extends keyof T>(key: K): T[K]
   getAll(): T
 }
